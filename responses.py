@@ -107,6 +107,8 @@ def create_response_add_name(name_to_add: str) -> Optional[Response]:
     if not name_to_add:
         return Response('Please provide a valid name to add.')
     
+    name_to_add = name_to_add.title()  # Capitalize the first letter of each word
+    
     db_instance = get_db_instance_npc_names()
     res: NameInsertResult = db_instance.insert_singular_name(name_to_add)
 
